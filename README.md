@@ -23,10 +23,15 @@ The app is fun, accessible, and supports multiple languages — making education
  * Chat-Style UI: Interactive chat or story output delivered through a Flutter app.
 
 ## Demo Preview
-* ![App Home](images/home.jpg)
-* ![Character Selection](images/select.jpg)
-* ![Upload pdf](images/upload.jpg)
-* ![Output](images/output.jpg)
+<p align="center">
+  <img src="images/home.jpg" alt="Home Screen" width="30%" height="600" />
+  <img src="images/select.jpg" alt="Character Select" width="30%" height="600"  />
+</p>
+
+<p align="center">
+  <img src="images/upload.jpg" alt="Upload content" width="30%" height="600"  />
+  <img src="images/output.jpg" alt="Output" width="30%" height="600"  />
+</p>
 
 > **Demo Video**
 
