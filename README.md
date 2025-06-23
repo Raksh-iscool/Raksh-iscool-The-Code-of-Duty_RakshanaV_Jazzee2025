@@ -12,24 +12,6 @@ Tellie is a GenAI-powered mobile app that transforms how children engage with st
 - **Cross-Platform**: Runs on iOS and Android from single codebase
 - **Child-Safe**: Content filtering and age-appropriate interactions
 
-##  Overview
-
-**What if Iron Man taught photosynthesis or Dora explained history like a story?**
-
-Tellie makes that possible. It uses generative AI and voice synthesis to make learning magical and emotionally memorable. Whether it’s a lesson or a bedtime story, kids can:
-
-* Upload content or pick a preloaded story
-* Choose a favorite character
-* Get content rewritten in the character's tone
-* And even hear it narrated in the character's voice
-
-The app is fun, accessible, and supports multiple languages — making education personal and delightful.
-## Features
- * Character-based Explanation: Upload a story or lesson, choose a character, and get the content rewritten in the character’s tone and style.
- * Voice Narration (TTS): Narration is generated in the voice of the chosen character using voice cloning APIs.
- * Multilingual Support: Basic support for Hindi, Tamil, and English.
- * Chat-Style UI: Interactive chat or story output delivered through a Flutter app.
-
 ## Demo Preview
 <p align="center">
   <img src="images/home.jpg" alt="Home Screen" width="30%" height="600" />
