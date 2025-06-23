@@ -1,40 +1,267 @@
+# Tellie  - Interactive Storytelling App for Kids
 
-# Tellie – GenAI Storytelling & Learning Assistant
+An interactive Flutter mobile application that enables children (ages 6-10) to co-create unique stories with an AI storyteller through voice interaction.
 
-Tellie is a GenAI-powered mobile app that transforms how children engage with stories and lessons. By combining the power of LLMs and voice cloning, Tellie allows kids to choose their favorite character (like Doraemon, Olaf, or Iron Man) to explain or narrate content in a fun, personalized, and emotionally engaging way.
+## 🌟 Features
 
+- **Interactive Storytelling**: Real-time voice conversation with AI storyteller
+- **Character Selection**: Choose from pre-defined characters for stories
+- **Visual Inspiration**: Upload images to inspire story settings
+- **Story Library**: Save and revisit completed stories
+- **Animated UI**: Engaging animations with Lottie
+- **Cross-Platform**: Runs on iOS and Android from single codebase
+- **Child-Safe**: Content filtering and age-appropriate interactions
 
-##  Overview
+## 🏗️ Architecture
 
-**What if Iron Man taught photosynthesis or Dora explained history like a story?**
+### Frontend (Flutter)
+- **Framework**: Flutter 3.16.0+
+- **State Management**: Riverpod + Hooks
+- **Navigation**: GoRouter
+- **Local Storage**: Hive
+- **Audio**: Record + Just Audio
+- **Real-time Communication**: LiveKit
+- **Network**: Dio
+- **Animations**: Lottie
 
-Tellie makes that possible. It uses generative AI and voice synthesis to make learning magical and emotionally memorable. Whether it’s a lesson or a bedtime story, kids can:
+### Backend (Node.js)
+- **Framework**: Express.js
+- **Real-time Audio**: LiveKit Server SDK
+- **Speech-to-Text**: OpenAI Whisper
+- **AI Responses**: OpenAI GPT-4
+- **Text-to-Speech**: ElevenLabs
+- **File Upload**: Multer
 
-* Upload content or pick a preloaded story
-* Choose a favorite character
-* Get content rewritten in the character's tone
-* And even hear it narrated in the character's voice
+## 📁 Project Structure
 
-The app is fun, accessible, and supports multiple languages — making education personal and delightful.
-## Features
- * Character-based Explanation: Upload a story or lesson, choose a character, and get the content rewritten in the character’s tone and style.
- * Voice Narration (TTS): Narration is generated in the voice of the chosen character using voice cloning APIs.
- * Multilingual Support: Basic support for Hindi, Tamil, and English.
- * Chat-Style UI: Interactive chat or story output delivered through a Flutter app.
+```
+lib/
+├── src/
+│   ├── features/
+│   │   ├── home/
+│   │   │   └── presentation/
+│   │   ├── story_creation/
+│   │   │   ├── application/     # Riverpod controllers
+│   │   │   ├── domain/          # Models and entities
+│   │   │   └── presentation/    # UI widgets
+│   │   └── story_library/
+│   │       ├── domain/
+│   │       └── presentation/
+│   ├── common_widgets/          # Reusable UI components
+│   ├── core/
+│   │   ├── constants/           # App constants
+│   │   └── theme/               # App theming
+│   ├── routing/                 # Navigation setup
+│   └── services/                # API clients
+├── assets/
+│   ├── animations/              # Lottie animations
+│   ├── audio/                   # Sound effects
+│   └── images/                  # Static images
+└── main.dart
+```
 
-## Demo Preview
-<p align="center">
-  <img src="images/home.jpg" alt="Home Screen" width="30%" height="600" />
-  <img src="images/select.jpg" alt="Character Select" width="30%" height="600"  />
-</p>
+## 🚀 Getting Started
 
-<p align="center">
-  <img src="images/upload.jpg" alt="Upload content" width="30%" height="600"  />
-  <img src="images/output.jpg" alt="Output" width="30%" height="600"  />
-</p>
+### Prerequisites
 
-> **Demo Video**
+- **Flutter**: 3.16.0 or higher
+- **Dart**: 3.8.0 or higher
+- **Node.js**: 16.0.0 or higher (for backend)
+- **iOS**: Xcode 15+ (for iOS development)
+- **Android**: Android Studio with API level 21+
 
-* [Click here to watch the demo](https://youtu.be/_uYAjBvuznA)
+### Flutter Setup
 
-*“Lessons and stories Told your way.”*
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd rakshu
+   ```
+
+2. **Install Flutter dependencies**
+   ```bash
+   flutter pub get
+   ```
+
+3. **Generate Hive adapters**
+   ```bash
+   flutter packages pub run build_runner build
+   ```
+
+4. **Run the app**
+   ```bash
+   # For iOS
+   flutter run -d ios
+   
+   # For Android
+   flutter run -d android
+   ```
+
+### Backend Setup
+
+1. **Navigate to project root and setup backend**
+   ```bash
+   # Copy the backend package.json
+   cp backend-package.json package.json
+   
+   # Install Node.js dependencies
+   npm install
+   ```
+
+2. **Set up environment variables**
+   ```bash
+   # Create .env file
+   LIVEKIT_API_KEY=your-livekit-api-key
+   LIVEKIT_API_SECRET=your-livekit-api-secret
+   OPENAI_API_KEY=your-openai-api-key
+   ELEVENLABS_API_KEY=your-elevenlabs-api-key
+   ```
+
+3. **Start the backend server**
+   ```bash
+   # Development mode
+   npm run dev
+   
+   # Production mode
+   npm start
+   ```
+
+4. **Verify backend is running**
+   ```bash
+   curl http://localhost:3000/health
+   ```
+
+## 🎯 Key Components
+
+### Story Creation Flow
+
+1. **Home Screen**: Entry point with beautiful animations
+2. **Story Setup**: Character selection, image upload, initial prompt
+3. **Interactive Storytelling**: Real-time voice interaction with AI
+4. **Story Library**: Browse and manage saved stories
+
+### State Management
+
+The app uses **Riverpod** for robust state management:
+
+- `StorySetupController`: Manages story creation setup
+- `StorytellingController`: Handles real-time storytelling session
+- Providers for services (API, audio, etc.)
+
+### Audio Pipeline
+
+1. **Recording**: Uses `record` package for audio capture
+2. **Upload**: Sends audio to backend via Dio
+3. **Processing**: Backend handles STT → LLM → TTS pipeline
+4. **Playback**: Uses `just_audio` for AI response playback
+
+## 🔧 Configuration
+
+### App Constants
+
+Key configuration in `lib/src/core/constants/app_constants.dart`:
+
+- API endpoints
+- Animation paths
+- UI dimensions
+- Audio settings
+- Content filtering
+
+### Theming
+
+Custom theme implementation in `lib/src/core/theme/app_theme.dart`:
+
+- Light and dark mode support
+- Child-friendly color palette
+- Consistent typography with Poppins font
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+flutter test
+
+# Run with coverage
+flutter test --coverage
+
+# Run integration tests
+flutter drive --target=test_driver/app.dart
+```
+
+## 📱 Platform-Specific Setup
+
+### iOS
+
+1. Update `ios/Runner/Info.plist` with required permissions:
+   ```xml
+   <key>NSMicrophoneUsageDescription</key>
+   <string>This app needs microphone access for voice storytelling.</string>
+   <key>NSPhotoLibraryUsageDescription</key>
+   <string>This app needs photo access to add inspiration images.</string>
+   ```
+
+2. Set deployment target to iOS 12.0+ in Xcode
+
+### Android
+
+1. Update `android/app/src/main/AndroidManifest.xml`:
+   ```xml
+   <uses-permission android:name="android.permission.RECORD_AUDIO" />
+   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+   <uses-permission android:name="android.permission.INTERNET" />
+   ```
+
+2. Set minimum SDK version to 21 in `android/app/build.gradle`
+
+## 🔒 Security & Privacy
+
+- All AI interactions are proxied through backend with content filtering
+- Child-safe personality enforced in AI prompts
+- No sensitive data stored locally
+- Audio recordings are temporary and deleted after processing
+- Parental controls and content moderation
+
+## 🚢 Deployment
+
+### Flutter App
+
+```bash
+# Build for release
+flutter build apk --release  # Android
+flutter build ios --release  # iOS
+```
+
+### Backend
+
+Deploy to your preferred cloud platform:
+- **AWS**: Use EC2 or Lambda
+- **Google Cloud**: Use Cloud Run or Compute Engine
+- **Heroku**: Direct deployment support
+- **Docker**: Containerized deployment
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🎨 Design Credits
+
+- **Animations**: Custom Lottie animations
+- **Icons**: Material Icons
+- **Font**: Poppins (Google Fonts)
+- **Color Palette**: Child-friendly custom design
+
+## 📞 Support
+
+For support, please contact the Tellie team or create an issue in the repository.
+
+---
+
+**Tellie ** - Empowering children's creativity through interactive storytelling! 🌟📚✨
