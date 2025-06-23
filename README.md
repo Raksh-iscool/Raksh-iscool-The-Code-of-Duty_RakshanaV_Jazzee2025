@@ -2,7 +2,7 @@
 
 Tellie is a GenAI-powered mobile app that transforms how children engage with stories and lessons. By combining the power of LLMs and voice cloning, Tellie allows kids to choose their favorite character (like Doraemon, Olaf, or Iron Man) to explain or narrate content in a fun, personalized, and emotionally engaging way.
 
-## 🌟 Features
+##  Features
 
 - **Interactive Storytelling**: Real-time voice conversation with AI storyteller
 - **Character Selection**: Choose from pre-defined characters for stories
@@ -23,13 +23,16 @@ Tellie is a GenAI-powered mobile app that transforms how children engage with st
   <img src="images/output.jpg" alt="Output" width="30%" height="600"  />
 </p>
 
-> **Demo Video**
+## Demo Video
 
-* [Click here to watch the demo](https://youtu.be/_uYAjBvuznA)
+* [Click here to watch the demo](https://youtu.be/A_YhZfQLER0)
+
+## Document
+* [Click here to view the document](https://docs.google.com/document/d/1u4_AcW8ruw3LccE1dUDUWyRtGesH-pzrd9nTLOdwdqw/edit?usp=sharing)
 
 *“Lessons and stories Told your way.”*
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Frontend (Flutter)
 - **Framework**: Flutter 3.16.0+
@@ -49,7 +52,7 @@ Tellie is a GenAI-powered mobile app that transforms how children engage with st
 - **Text-to-Speech**: ElevenLabs
 - **File Upload**: Multer
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 lib/
@@ -77,7 +80,7 @@ lib/
 └── main.dart
 ```
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -148,7 +151,7 @@ lib/
    curl http://localhost:3000/health
    ```
 
-## 🎯 Key Components
+##  Key Components
 
 ### Story Creation Flow
 
@@ -192,7 +195,7 @@ Custom theme implementation in `lib/src/core/theme/app_theme.dart`:
 - Child-friendly color palette
 - Consistent typography with Poppins font
 
-## 📱 Platform-Specific Setup
+##  Platform-Specific Setup
 
 ### iOS
 
@@ -217,7 +220,7 @@ Custom theme implementation in `lib/src/core/theme/app_theme.dart`:
 
 2. Set minimum SDK version to 21 in `android/app/build.gradle`
 
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 - All AI interactions are proxied through backend with content filtering
 - Child-safe personality enforced in AI prompts
@@ -225,7 +228,7 @@ Custom theme implementation in `lib/src/core/theme/app_theme.dart`:
 - Audio recordings are temporary and deleted after processing
 - Parental controls and content moderation
 
-## 🚢 Deployment
+##  Deployment
 
 ### Flutter App
 
