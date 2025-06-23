@@ -175,7 +175,7 @@ The app uses **Riverpod** for robust state management:
 3. **Processing**: Backend handles STT → LLM → TTS pipeline
 4. **Playback**: Uses `just_audio` for AI response playback
 
-## 🔧 Configuration
+##  Configuration
 
 ### App Constants
 
@@ -238,4 +238,3 @@ flutter build apk --release  # Android
 flutter build ios --release  # iOS
 ```
 
-**Tellie ** - Empowering children's creativity through interactive storytelling! 🌟📚✨
